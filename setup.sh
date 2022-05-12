@@ -1,6 +1,4 @@
 #!/bin/sh
-cd /home/teresa;
-git clone https://github.com/cjsmocjsmo/fexpress;
 cd /home/teresa/fsexpress
 
 python3 -m venv /home/teresa/fexpress/fexpressServer;
