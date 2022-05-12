@@ -8,13 +8,11 @@ mv /home/teresa/fexpressServer/util.py /home/teresa/fexpressServer/fexpress/util
 
 cd /home/teresa/fexpressServer/fexpress;
 sudo apt-get update && \
-sudo apt-get dist-upgrade -y && \
-sudo apt-get autoclean -y && \
-sudo apt-get autoremove -y && \
 sudo apt-get install --no-install-recommends -y \
 	build-essential \
 	python3-dev \
     python3-setuptools \
 	python3-tornado;
+echo "Compoete";
 
 python3 /home/teresa/fexpressServer/fexpress/fexpressServer.py;
