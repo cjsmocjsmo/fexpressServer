@@ -42,27 +42,32 @@ class Application(tornado.web.Application):
         )
         tornado.web.Application.__init__(self, handlers, **settings)
 
+class BaseHandler(tornado.web.RequestHandler):
+    def set_default_headers(self, *args, **kwargs):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
+        self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
 
-class MainHandler(tornado.web.RequestHandler):
+class MainHandler(BaseHandler):
     def get(self):
         self.render('index.html')
 
 
-class VPNConnectHandler(tornado.web.RequestHandler):
+class VPNConnectHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
         CONN = fexp.connect()
         self.write(dict(conn=CONN))
 
 
-class VPNDisConnectHandler(tornado.web.RequestHandler):
+class VPNDisConnectHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
         DISCO = fexp.disconnect()
         self.write(dict(disco=DISCO))
 
 
-class VPNStatusHandler(tornado.web.RequestHandler):
+class VPNStatusHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
         STATUS = fexp.status()
