@@ -1,11 +1,12 @@
 #!/bin/sh
-cd /home/teresa/fsexpress
+cd /home/teresa/fsexpressServer;
 
-python3 -m venv /home/teresa/fexpress/fexpressServer;
-cd /home/teresa/fexpress/fexpressServer;
-mv /home/teresa/fexpress/fexpressServer.py /home/teresa/fexpress/fsexpressServer/fexpressServer.py
-mv /home/teresa/fexpress/util.py /home/teresa/fexpress/fsexpressServer/util.py
+python3 -m venv /home/teresa/fsexpressServer/fexpress;
 
+mv /home/teresa/fexpressServer/fexpressServer.py /home/teresa/fexpressServer/fsexpress/fexpressServer.py;
+mv /home/teresa/fexpressServer/util.py /home/teresa/fexpressServer/fsexpress/util.py;
+
+cd /home/teresa/fsexpressServer/fexpress;
 sudo apt-get update && \
 sudo apt-get dist-upgrade -y && \
 sudo apt-get autoclean -y && \
